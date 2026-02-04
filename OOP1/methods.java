@@ -9,6 +9,8 @@ class facebookAccount{
         username = name;
     }
     public void setAge(String age){
-        Age = age;
+        Age = int age;
     }
 }
+//now here are my questions
+// suppose i make public class then what does public class should do here like anything that can be done 
