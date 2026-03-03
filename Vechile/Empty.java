@@ -1,0 +1,2 @@
+package Vechile;
+class Nothing{}

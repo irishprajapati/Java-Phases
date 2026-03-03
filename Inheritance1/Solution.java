@@ -11,6 +11,10 @@ class Employee{
         System.out.println("Base salary: " + salary);
     }
 }
+class Developer extends Employee{
+    double bonus;
+    
+}
 public class Solution {
     public static void main(String[] args) {
         
