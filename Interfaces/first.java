@@ -1,16 +1,14 @@
 package Interfaces;
-class Computer{
-    public void code(){
-
-    }
+interface Computer{
+    void code();
 }
-class Laptop extends Computer{ //creating a object of laptop for developer
+class Laptop implements Computer{ //creating a object of laptop for developer
     @Override
     public void code(){
         System.out.println("code, compile and run");
     }
 }
-class Desktop extends Computer{
+class Desktop implements Computer{
     @Override
     public void code(){
         System.out.println("Code, compile and execute faster");
