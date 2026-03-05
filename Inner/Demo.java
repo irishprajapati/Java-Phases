@@ -1,22 +1,38 @@
 package Inner;
-
-class A{
-    int age;
-    public void show(){
-        System.out.println("In A show");
-    }
-    static class B{
-        public void config(){
-            System.out.println("In cofig");
-        }
-    }
+abstract class A{
+    abstract public void show();
 }
+// class B extends A{
+//     @Override
+//     public void show(){
+//         System.out.println("in B show");
+//     }
+// }
+// class B extends A{
+
+//     @Override
+//     public void show() {
+//         System.out.println("Unimplemented method 'show'");
+//     }
+    
+// }
 public class Demo {
     public static void main(String[] args) {
-        A obj = new A();
+        // A data = new A()
+        // {
+        //     @Override
+        //     public void show(){
+        //         System.out.println("in new show");
+        //     }
+        // };
+        // data.show();
+        A obj = new A(){
+            @Override
+            public void show(){
+                System.out.println("in new show");
+            }
+        };
         obj.show();
-        //using the class B now
-        A.B obj1 = new A.B();
-        obj1.config();
-    }
+
+        }
 }
