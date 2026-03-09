@@ -8,8 +8,5 @@ public class Second {
         A obj = (int i, int j) -> i + j;
         int result = obj.add(11, 1);
         System.out.println(result);
-        
-        
-        
     }
 }
