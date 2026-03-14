@@ -36,19 +36,12 @@ class Account{
     private String name;
     private int accountNumber;
     private double balance;
-    public Account(String name, int accountNumber, double balance){
+    public Account(String name, int accountNumber, double balance, double dailyLimit, double minimumBalance){
         this.name = name;
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
-//    public void login(String username) throws AccountNotFoundException{
-//        if(username.equals("admin") && username.equals("manager")){
-//            System.out.println("Access granted to the system");
-//        }else{
-//            throw new AccountNotFoundException("Unable to find your account");
-//        }
-//    }
-    //need to refactor this code for == logic handling
+
     public void withdraw(double amount)throws InsufficientAmountException{
         if( amount< 0){
             System.out.println("Withdraw amount cannot be negative.");
