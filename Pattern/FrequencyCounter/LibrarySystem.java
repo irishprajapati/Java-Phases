@@ -177,3 +177,26 @@ public class LibrarySystem {
         }
     }
 }
+/* this code was just for practice
+final class AccountInfo{
+    private final int accountId;
+    private final String currency;
+    private final String ownerName;
+    public AccountInfo(int accountId, String currency, String ownerName){
+        this.accountId = accountId;
+        this.currency = currency;
+        this.ownerName  = ownerName;
+    }
+    public int getAccountId(){return accountId;}
+    public String getCurrency(){return currency;}
+    public String getOwnerName(){return  ownerName;}
+    public AccountInfo withCurrency(String newCurrency){
+        return new AccountInfo(this.accountId, this.ownerName, newCurrency);
+    }
+    @Override
+    public String toString(){
+        return "AccountId: " + getAccountId() + " Currency: " + getCurrency() + " Account Owner: " + getOwnerName();
+
+    }
+}
+ */
