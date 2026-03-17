@@ -1,9 +1,13 @@
 package inventory;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 class InventoryRegistry implements InventoryRepository {
     private ConcurrentHashMap<Integer, Product> productMap;
+    public InventoryRegistry(){
+        this.productMap = new ConcurrentHashMap<>();
+    }
     @Override
     public void addProduct(Product product) throws IllegalArgumentException{
        if(product == null){
@@ -29,23 +33,43 @@ class InventoryRegistry implements InventoryRepository {
 
     @Override
     public Product getProduct(int productId) {
-        return null;
+        Product product = productMap.get(productId);
+        if(product == null){
+            throw new IllegalArgumentException("Product not found");
+        }
+        return product;
     }
 
     @Override
     public List<Product> getAllProducts() {
-        return List.of();
+        return new ArrayList<>(productMap.values());
     }
 
     @Override
     public List<Product> searchByName(String keyword) {
-        return List.of();
+        if (keyword == null) {
+            throw new IllegalArgumentException("Keyword cannot be null");
+        }
+            List<Product> result = new ArrayList<>();
+            for (Product product : productMap.values()) {
+                if (product.getName().toLowerCase().contains(keyword.toLowerCase())) {
+                    result.add(product);
+                }
+        }
+        return result;
     }
 
     @Override
     public List<Product> getCategory(ProductCategory category) {
-        return List.of();
+        if(category == null){
+            throw  new IllegalArgumentException("Category cannot be null");
+        }
+        List<Product> result = new ArrayList<>();
+        for(Product product: productMap.values()){
+            if(product.getCategory() == category){
+                result.add(product);
+            }
+        }
+        return result;
     }
-
-
 }
