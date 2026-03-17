@@ -11,13 +11,13 @@ abstract class Product {
         this.price = price;
     }
 
-    public int getId() {
+    protected int getId() {
         return id;
     }
-    public String getName(){
+    protected String getName(){
         return name;
     }
-    public double getPrice(){
+    protected double getPrice(){
         return price;
     }
     public ProductCategory getCategory(){
