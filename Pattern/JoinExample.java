@@ -107,14 +107,24 @@ public class JoinExample {
                 new Order(200L,4L,988888)
         );
         Map<Long, User> userById = new HashMap<>();
+        Map<Long, List<Order>> ordersByUserId = new HashMap<>();
         for(User user: userlist){
             userById.put(user.getId(), user);
         }
+//        for(Order order: orderList){
+//            User user = userById.get(order.getUserId());
+//                if( user != null){
+//                    System.out.println("Order: " + order.getId() + " belongs to " + user.getName() + " amount: " + order.getAmount());
+//                }
+//        }
         for(Order order: orderList){
-            User user = userById.get(order.getUserId());
-                if( user != null){
-                    System.out.println("Order: " + order.getId() + " belongs to " + user.getName() + " amount: " + order.getAmount());
-                }
+            ordersByUserId.computeIfAbsent(order.getUserId(), id -> new ArrayList<>()).add(order);
+        }
+        for(Map.Entry<Long, List<Order>> entry: ordersByUserId.entrySet()){
+            System.out.println("User: " +  userlist + entry.getKey() + " has orders: ");
+            for(Order order: entry.getValue()){
+                System.out.println("Order Id: " + order.getId());
+            }
         }
     }
 }
